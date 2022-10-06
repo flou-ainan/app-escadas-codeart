@@ -2,10 +2,50 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import netlifyLogo from './assets/netlifyLogo.svg'
 import githubLogo from './assets/githubLogo.svg'
+import Form from './Form'
 import './App.css'
 
+class Escada {
+  constructor(altura, espelho, piso){
+    this.altura = altura
+    this.espelho = espelho
+    this.piso = piso
+  }
+
+  get numDegraus(){
+    let a = this.altura 
+    a = a/this.espelho 
+    return Math.ceil(a)
+  }
+  get largura(){
+    let a = this.altura
+    a -= this.espelho
+    a = a/this.espelho
+    a = Math.ceil(a)
+    return a * this.piso
+  }
+
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [escada, setEscada] = useState( 
+    new Escada(
+        280, // altura em centímetros
+        17, // espelho em centímetros
+        25 // piso em centímetros
+      )
+
+  )
+  
+  function handleChange(event) {
+    const {id, value} = event.target
+    setEscada(prevEscada => {
+        return {
+            ...prevEscada,
+            [id]: value
+        }
+    })    
+  }
 
   return (
     <div className="App">
@@ -23,18 +63,19 @@ function App() {
           <img src={netlifyLogo} className="logo netlify" alt="Netlify logo" />
         </a>
       </div>
-      <h1>Vite + React + Github + Netlify</h1>
+      <h2>Vite + React + Github + Netlify</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          APP ESCADAS Flow codeArt
+          APP ESCADAS Flow codeArt <b>EM CONSTRUÇÃO</b>
         </p>
       </div>
-      <p className="read-the-docs">
-        TROQUEI O TEXTO
-      </p>
+      <Form
+        altura={escada.altura}
+        piso={escada.piso}
+        espelho={escada.espelho}
+        handleChange={handleChange} />
+        <p>Num de Degraus: {escada.numDegraus}</p>
+        <p>Largura: {escada.largura} cm</p>
     </div>
   )
 }
