@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import netlifyLogo from './assets/netlifyLogo.svg'
+import githubLogo from './assets/githubLogo.svg'
 import './App.css'
 
 function App() {
@@ -14,8 +16,14 @@ function App() {
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <a href="https://www.github.com/" target="_blank">
+          <img src={githubLogo} className="logo github" alt="Github logo" />
+        </a>
+        <a href="https://www.netlify.com/" target="_blank">
+          <img src={netlifyLogo} className="logo netlify" alt="Netlify logo" />
+        </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + Github + Netlify</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
