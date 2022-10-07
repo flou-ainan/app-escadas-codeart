@@ -56,6 +56,7 @@ function App() {
         handleChange={handleChange} />
         <p>Num de Degraus: {escada.numDegraus}</p>
         <p>Largura: {escada.largura} cm</p>
+        <p>Angulo: {escada.angulo.toFixed(2)} º</p>
     </div>
   )
 }

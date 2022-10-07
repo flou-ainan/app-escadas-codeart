@@ -39,9 +39,12 @@ export function montar(altura, espelho, piso){
     return escada
   }
 
-  function atualizarAngulo(escada){
-    let a = 0
-    
-    escada.angulo = a
+  function atualizarAngulo(escada){ // --> docs/Angulo-de-inclinacao.md
+    let TA
+    let ANrad
+    TA = escada.altura / escada.largura
+    ANrad = Math.atan(TA)
+
+    escada.angulo = ANrad * (180/Math.PI)
     return escada
   }
