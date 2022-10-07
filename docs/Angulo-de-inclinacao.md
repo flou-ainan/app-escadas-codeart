@@ -18,7 +18,7 @@ Tangente = Oposto / Adjacente   <--
 // Temos os cateto oposto(altura) e cateto adjacente(largura)
 // como possiveis dados para descobrir nosso angulo.
 
-
+```
         |\                               
         |   \                                           
         |      \                                          
@@ -28,12 +28,12 @@ Oposto  |               \
         |                  \                     
         |                     \                      
         |                        \                
-        |___________________________\  <--  Tangente deste angulo ⬇️
+        |__________________________o\  <--  Tangente deste angulo = TA ⬇️
                Cateto Adjacente
-
+```
           
 
-➡️ = Cateto Oposto / Cateto Adjacente
+➡️ TA = Cateto Oposto / Cateto Adjacente
 
 // Pseudo código //
 
@@ -53,9 +53,9 @@ AN = ANrad x (180/PI)
 
 ------- JavaScript : Notes -----
 
-Math.PI -> Valor de PI
+`Math.PI` -> Valor de PI
 
-Math.atan(x) -> Retorna angulo de uma tangente em radianos
+`Math.atan(x)` -> Retorna angulo de uma tangente em radianos
 
 
 
