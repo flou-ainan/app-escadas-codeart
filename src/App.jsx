@@ -4,46 +4,26 @@ import netlifyLogo from './assets/netlifyLogo.svg'
 import githubLogo from './assets/githubLogo.svg'
 import Form from './Form'
 import './App.css'
-
-class Escada {
-  constructor(altura, espelho, piso){
-    this.altura = altura
-    this.espelho = espelho
-    this.piso = piso
-  }
-
-  get numDegraus(){
-    let a = this.altura 
-    a = a/this.espelho 
-    return Math.ceil(a)
-  }
-  get largura(){
-    let a = this.altura
-    a -= this.espelho
-    a = a/this.espelho
-    a = Math.ceil(a)
-    return a * this.piso
-  }
-
-}
+import {montar, remontar} from './ManipuladorDeEscadas'
 
 function App() {
   const [escada, setEscada] = useState( 
-    new Escada(
-        280, // altura em centímetros
-        17, // espelho em centímetros
-        25 // piso em centímetros
-      )
-
+    montar(
+      280, //altura: altura da escada em centimetros
+      16, // espelho: altura do degrau em centimetros
+      27 //  piso: largura do degrau em centimetros
+    )
   )
   
   function handleChange(event) {
     const {id, value} = event.target
     setEscada(prevEscada => {
-        return {
+        return remontar(
+          {
             ...prevEscada,
-            [id]: value
-        }
+            [id]:value
+          }
+          )
     })    
   }
 
