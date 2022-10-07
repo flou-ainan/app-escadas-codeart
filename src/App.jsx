@@ -33,7 +33,7 @@ function App() {
     var draw = SVG().addTo('#svg').size(650, 400)
     let style = {fill: '#75A'}
     let OrigemY = 400 - parseInt(altura)
-    draw.rect(2, 16).attr(style).move(0,OrigemY-espelho)
+    draw.rect(2, 16).attr(style).move(0, OrigemY-espelho)
     alturaDeg -= espelho
     let count = 0
     while (alturaDeg >= 0){
@@ -45,7 +45,7 @@ function App() {
       document.getElementById('svg').remove
 
     }
-  },[escada.altura,escada.espelho, escada.piso])
+  },[escada.altura, escada.piso, escada.espelho])
   
 
   return (
