@@ -12,9 +12,9 @@ Aplicativo em desenvolvimento
 - `JavasCript`
 - `HTML`
 
-![Logos das Tecnolias usadas](/docs/src/tecnologias.png "Tecnologies")
+![Logos das Tecnologias usadas](/docs/src/tecnologias.png "Tecnologies")
 
 ## Screenshot ##
 ![Um formulario com tres entradas, alguns resultados e uma escada roxa em 2D](/docs/src/screenshots/screenshot_01.png "Screenshot_01")
 
-### [`docs`](/docs) ###
+## [`Documentação`](/docs) ##
