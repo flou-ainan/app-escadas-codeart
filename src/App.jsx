@@ -8,9 +8,10 @@ import {montar, remontar} from './ManipuladorDeEscadas'
 import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
 
 function App() {
+  let svgTimer
   const [escada, setEscada] = useState( 
     montar(
-      280, //altura: altura da escada em centimetros
+      300, //altura: altura da escada em centimetros
       16, // espelho: altura do degrau em centimetros
       27 //  piso: largura do degrau em centimetros
     )
@@ -28,22 +29,38 @@ function App() {
     })    
   }
   useEffect(()=>{
-    let {altura, piso, espelho} = escada
-    let alturaDeg = altura
-    var draw = SVG().addTo('#svg').size(650, 400)
-    let style = {fill: '#75A'}
-    let OrigemY = 400 - parseInt(altura)
-    draw.rect(2, 16).attr(style).move(0, OrigemY-espelho)
-    alturaDeg -= espelho
-    let count = 0
-    while (alturaDeg >= 0){
-      draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY)
-      alturaDeg -= espelho
-      count ++
-    }
-    return () => {
-      document.getElementById('svg').remove
+    // Cria elemento
+    let div = document.createElement("div")
+    div.id = "svg"
+    document.getElementById("app").appendChild(div)
 
+    //----------------
+    svgTimer = setTimeout(() => {
+      let {altura, piso, espelho} = escada
+      altura = parseInt(altura)
+      piso = parseInt(piso)
+      espelho = parseInt(espelho)
+      console.log(escada)
+      let alturaDeg = altura
+      var draw = SVG().addTo('#svg').size(650, 400)
+      let style = {fill: '#75A'}
+      let OrigemY = 400 - parseInt(altura)
+      draw.rect(2, espelho).attr(style).move(0, OrigemY-espelho)
+      alturaDeg -= espelho
+      let count = 0
+      while (alturaDeg >= 0){
+        draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY)
+        alturaDeg -= espelho
+        count ++
+      }
+
+    },200)
+    
+    return () => {
+      // Remove elemento
+      clearTimeout(svgTimer)
+      document.getElementById('svg').remove()     
+      //------------------
     }
   },[escada.altura, escada.piso, escada.espelho])
   
@@ -67,18 +84,19 @@ function App() {
       <h2>Vite + React + Github + Netlify</h2>
       <div className="card">
         <p>
-          APP ESCADAS Flow codeArt <b>EM CONSTRUÇÃO</b>
+          APP ESCADAS Flow codeArt <b><a href='https://github.com/flou-ainan/app-escadas-codeart#app-para-projetar-escadas'>EM CONSTRUÇÃO</a></b>
         </p>
       </div>
       <Form
         altura={escada.altura}
         piso={escada.piso}
         espelho={escada.espelho}
-        handleChange={handleChange} />
-        <p>Num de Degraus: {escada.numDegraus}</p>
-        <p>Largura: {escada.largura} cm</p>
-        <p>Angulo: {escada.angulo.toFixed(2)} º</p>
-        <div id='svg'/>
+        handleChange={handleChange} 
+      />
+
+        <span className='infos'>Num de Degraus: {escada.numDegraus}</span>
+        <span className='infos'>Largura: {escada.largura} cm</span>
+        <span className='infos'>Angulo: {escada.angulo.toFixed(2)} º</span>
     </div>
   )
 }

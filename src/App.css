@@ -6,8 +6,8 @@
 }
 
 .logo {
-  height: 4em;
-  padding: 1em;
+  height: 2em;
+  padding: 0.5em;
   will-change: filter;
 }
 .logo:hover {
@@ -38,4 +38,12 @@
 
 .read-the-docs {
   color: #888;
+}
+.infos {
+  font-weight: 600;
+  color: white;
+  margin: 3px;
+  background-color:#77d;
+  padding: 3px 15px;
+  border-radius: 10px;
 }
