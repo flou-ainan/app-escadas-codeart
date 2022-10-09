@@ -2,6 +2,7 @@ import { useState, useEffect, createElement } from 'react'
 import reactLogo from './assets/react.svg'
 import netlifyLogo from './assets/netlifyLogo.svg'
 import githubLogo from './assets/githubLogo.svg'
+import svgjsLogo from './assets/svgjsLogo.svg'
 import Form from './Form'
 import './App.css'
 import {montar, remontar} from './ManipuladorDeEscadas'
@@ -74,6 +75,9 @@ function App() {
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <a href="https://svgjs.dev/docs/3.0/" target="_blank">
+          <img src={svgjsLogo} className="logo svgjs" alt="SVG.js logo" />
+        </a> 
         <a href="https://www.github.com/" target="_blank">
           <img src={githubLogo} className="logo github" alt="Github logo" />
         </a>
@@ -81,7 +85,7 @@ function App() {
           <img src={netlifyLogo} className="logo netlify" alt="Netlify logo" />
         </a>
       </div>
-      <h2>Vite + React + Github + Netlify</h2>
+      <h4>Vite + React + SVG.js + Github + Netlify</h4>
       <div className="card">
         <p>
           APP ESCADAS Flow codeArt <b><a href='https://github.com/flou-ainan/app-escadas-codeart#app-para-projetar-escadas'>EM CONSTRUÇÃO</a></b>

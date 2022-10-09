@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -6,15 +9,15 @@
 }
 
 .logo {
-  height: 2em;
+  height: 3.2em;
   padding: 0.5em;
   will-change: filter;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 0.5em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 0.5em #61dafbaa);
 }
 
 @keyframes logo-spin {
@@ -46,4 +49,45 @@
   background-color:#77d;
   padding: 3px 15px;
   border-radius: 10px;
+}
+.infos:hover {
+  filter: drop-shadow(0 0 0.9em #646cffaa);
+}
+
+.entrada {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(75, 75, 117);
+  color: antiquewhite;
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: flex-end;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  max-width: fit-content;
+}
+.campo_formulario {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+label {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+
+}
+input {
+  
 }
