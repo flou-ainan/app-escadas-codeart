@@ -6,7 +6,7 @@ export default function Form(props) {
         <div id="formulario">
 
             <div className="campo_formulario">
-                <label htmlFor="altura">Altura: </label>            
+                <label htmlFor="altura">Altura em cm: </label>            
                 <input
                     className="entrada"
                     type="text"
@@ -18,7 +18,7 @@ export default function Form(props) {
             </div>
 
             <div className="campo_formulario">
-                <label htmlFor="espelho">Espelho: </label>
+                <label htmlFor="espelho">Espelho em cm: </label>
                 <input
                     className="entrada"
                     type="text"
@@ -30,7 +30,7 @@ export default function Form(props) {
             </div>
 
             <div className="campo_formulario">
-                <label htmlFor="piso">Piso: </label>
+                <label htmlFor="piso">Piso em cm: </label>
                 <input
                     className="entrada"
                     type="text"

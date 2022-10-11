@@ -72,7 +72,7 @@ function App() {
       alturaDeg -= espelho
       let count = 0
       while (alturaDeg >= 0){
-        draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY).stroke({ color: '#406', opacity: 1, width: 1 })
+        draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY).stroke({ color: '#75a', opacity: 1, width: 2 })
         alturaDeg -= espelho
         count ++
       }
