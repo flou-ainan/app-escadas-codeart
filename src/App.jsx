@@ -30,6 +30,9 @@ function App() {
     })    
   }
   useEffect(()=>{
+    // Remove Placeholder
+
+    // ------------
     // Cria elemento
     let div = document.createElement("div")
     div.id = "svg"
@@ -41,16 +44,35 @@ function App() {
       altura = parseInt(altura)
       piso = parseInt(piso)
       espelho = parseInt(espelho)
-      console.log(escada)
-      let alturaDeg = altura
-      var draw = SVG().addTo('#svg').size(650, 400)
+
+
+      let degQuant = Math.ceil(altura/espelho)
+      let largura = (degQuant -1) * piso
+
+      let quadro = {x:500, y:300}
+
+      let aux = quadro.y / altura
+      let aux2 = quadro.x / largura
+
+      aux = aux > aux2 ? aux2 : aux
+
+
+     let alturaDeg = altura * aux
+      espelho = espelho * aux
+      piso = piso * aux
+
+     
+      
+      
+      var draw = SVG().addTo('#svg').size(quadro.x, quadro.y)
       let style = {fill: '#75A'}
-      let OrigemY = 400 - parseInt(altura)
+      let OrigemY = espelho
+      draw.rect(quadro.x, quadro.y).attr({fill: '#fff'})
       draw.rect(2, espelho).attr(style).move(0, OrigemY-espelho)
       alturaDeg -= espelho
       let count = 0
       while (alturaDeg >= 0){
-        draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY)
+        draw.rect(piso, alturaDeg).attr(style).move(piso*count, (espelho*count)+OrigemY).stroke({ color: '#406', opacity: 1, width: 1 })
         alturaDeg -= espelho
         count ++
       }
@@ -62,6 +84,9 @@ function App() {
       clearTimeout(svgTimer)
       document.getElementById('svg').remove()     
       //------------------
+      //Insere Placeholder
+
+      //-----------------
     }
   },[escada.altura, escada.piso, escada.espelho])
   
@@ -101,6 +126,7 @@ function App() {
         <span className='infos'>Num de Degraus: {escada.numDegraus}</span>
         <span className='infos'>Largura: {escada.largura} cm</span>
         <span className='infos'>Angulo: {escada.angulo.toFixed(2)} º</span>
+        <br /><br /><br />
     </div>
   )
 }
