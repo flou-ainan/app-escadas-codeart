@@ -93,7 +93,8 @@ function App() {
 
   return (
     <div className="App" id="app">
-      <div>
+      
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
@@ -109,8 +110,9 @@ function App() {
         <a href="https://www.netlify.com/" target="_blank">
           <img src={netlifyLogo} className="logo netlify" alt="Netlify logo" />
         </a>
-      </div>
       <h4>Vite + React + SVG.js + Github + Netlify</h4>
+      </div> */}
+
       <div className="card">
         <p>
           APP ESCADAS Flow codeArt <b><a href='https://github.com/flou-ainan/app-escadas-codeart#app-para-projetar-escadas'>EM CONSTRUÇÃO</a></b>
